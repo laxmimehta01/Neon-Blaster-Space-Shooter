@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Space Shooter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="ui-layer">
+            <div id="hud" class="hidden">
+                <div class="score-container">SCORE: <span id="score">0</span></div>
+                <div class="health-container">
+                    <div class="health-bar-bg">
+                        <div id="health-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="start-screen" class="screen">
+                <h1 class="title glitch" data-text="NEON BLASTER">NEON BLASTER</h1>
+                <p class="subtitle">TAP TO START</p>
+                <div class="tutorial">
+                    <p>DRAG TO MOVE</p>
+                    <p>AUTO FIRE</p>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h1 class="title">GAME OVER</h1>
+                <p class="final-score">SCORE: <span id="final-score-val">0</span></p>
+                <button id="restart-btn" class="neon-btn">RETRY</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

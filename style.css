@@ -1,0 +1,186 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff9d;
+    --bg-color: #050505;
+    --font-main: 'Orbitron', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    font-family: var(--font-main);
+    color: white;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Typography & Glitch Effect */
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue),
+        0 0 40px var(--neon-blue);
+    margin-bottom: 1rem;
+    position: relative;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    animation: pulse 1.5s infinite;
+}
+
+.tutorial {
+    margin-top: 3rem;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.tutorial p {
+    margin: 0.5rem 0;
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.score-container {
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.health-container {
+    width: 200px;
+}
+
+.health-bar-bg {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#health-bar-fill {
+    width: 100%;
+    height: 100%;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: width 0.2s ease-out;
+}
+
+/* Game Over Screen */
+.final-score {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.neon-btn {
+    background: transparent;
+    border: 2px solid var(--neon-pink);
+    color: var(--neon-pink);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: var(--font-main);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.neon-btn:hover {
+    background: var(--neon-pink);
+    color: white;
+    box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px var(--neon-pink);
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    .health-container {
+        width: 120px;
+    }
+}
